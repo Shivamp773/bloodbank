@@ -1,0 +1,141 @@
+/** @format */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ======= FORM ======= */
+.form-banner img {
+  height: 100%;
+  width: 100%;
+}
+.form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f1f5f9;
+}
+
+/* ======= LOADER ======= */
+.loader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.loader {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #ccc;
+  border-bottom-color: #4dabf7;
+  border-radius: 50%;
+  animation: rotation 1s linear infinite;
+}
+
+/* ======= NAVBAR ======= */
+.navbar {
+  background-color: #f8f9fa !important;
+  color: #333 !important;
+  border-bottom: 2px solid #ccc;
+  padding: 12px 24px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.nav-link,
+.navbar-brand {
+  color: #2c3e50 !important;
+  font-size: 20px;
+  margin: 8px 12px;
+  font-weight: bold;
+}
+
+.btn-danger {
+  margin: 8px 12px;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+/* ======= BUTTON ======= */
+.button-29 {
+  background-image: radial-gradient(100% 100% at 100% 0, #a1c4fd 0, #c2e9fb 100%);
+  color: #333;
+  height: 52px;
+  font-size: 18px;
+  padding: 0 20px;
+  border-radius: 8px;
+}
+
+.button-29:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.button-29:active {
+  transform: translateY(2px);
+  box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ======= TABLE ======= */
+.tableClass {
+  border: 2px solid #ccc;
+  margin: 30px auto;
+  width: 85%;
+  font-size: 18px;
+}
+
+td {
+  padding: 12px;
+  font-weight: 500;
+  color: #444;
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+/* ======= CARD STYLING ======= */
+.card-main {
+  border: 2px solid #ddd;
+  padding: 20px;
+  font-family: 'Arial Black', sans-serif;
+  transition: all 0.4s ease-in-out;
+  border-radius: 8px;
+}
+
+.card-main:hover {
+  background-color: #e3f2fd !important;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  transform: scale(1.05);
+}
+
+.card-title {
+  font-size: 22px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #fefefe;
+  border: 1px solid #ccc;
+}
+
+.card-footer {
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.card-text {
+  font-size: 16px;
+  font-family: 'Verdana', sans-serif;
+}
+
+/* ======= OTHER ======= */
+.anc {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.text-success {
+  padding: 8px;
+  font-size: 16px;
+}

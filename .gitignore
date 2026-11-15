@@ -1,5 +1,16 @@
-.config.env
-/node_modules
-config.env
-node_modules
-package-lock.json
+# Dependencies
+node_modules/
+
+# Local environment (all variables are optional, see .env.example)
+.env
+.env.*
+!.env.example
+
+# Build output and test artefacts
+client/dist/
+coverage/
+
+# Logs and OS files
+*.log
+.DS_Store
+Thumbs.db

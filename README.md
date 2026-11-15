@@ -36,6 +36,19 @@ All demo accounts use the password **`Demo@1234`**. Select the matching role on 
 Demo data is regenerated every time the server restarts. More accounts exist (e.g. `hope@bloodbank.test`,
 `greenvalley@bloodbank.test`); every donor is `<first name>@bloodbank.test`.
 
+## Screenshots
+
+<p align="center">
+  <img src="images%20folder/login.png" alt="Login page with the demo accounts panel" width="49%">
+  <img src="images%20folder/register.png" alt="Register page" width="49%">
+  <img src="images%20folder/inventory.png" alt="Organisation inventory with filters and low-stock alert" width="49%">
+  <img src="images%20folder/blood-requests.png" alt="Blood requests from hospitals, with stock next to each request" width="49%">
+  <img src="images%20folder/analytics.png" alt="Analytics dashboard with stock and 30-day trend charts" width="49%">
+  <img src="images%20folder/admin-dashboard.png" alt="Admin dashboard with system-wide numbers" width="49%">
+  <img src="images%20folder/appointments.png" alt="Donor appointments with eligibility and booking" width="49%">
+  <img src="images%20folder/about.png" alt="About page" width="49%">
+</p>
+
 ## Features
 
 **Organisations (blood banks)**

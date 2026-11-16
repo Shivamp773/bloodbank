@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased
+
+- Deploy on Vercel: `vercel.json` builds the client and runs the API as a serverless function. It needs
+  `MONGO_URL` and `JWT_SECRET` in the Vercel project settings, and explains which one is missing if not.
+- The login page lists the demo accounts whenever the demo data is loaded, including on a live database
+  seeded with `npm run seed`.
+- The server trusts the hosting proxy on Vercel, so rate limiting uses each visitor's real IP address.
+
 ## 2.0.0
 
 A rewrite of version 1 that keeps every existing feature, fixes its bugs and security problems, and adds

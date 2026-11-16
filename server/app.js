@@ -21,7 +21,7 @@ const CLIENT_DIST = path.join(ROOT_DIR, 'client', 'dist');
 export function createApp() {
   const app = express();
 
-  if (config.isProduction) app.set('trust proxy', 1); // correct client IPs behind Render/Heroku-style proxies
+  if (config.behindProxy) app.set('trust proxy', 1); // real client IPs (for rate limiting) behind Vercel/Render
 
   // `upgrade-insecure-requests` is disabled so the built app also works over plain http://localhost.
   app.use(helmet({ contentSecurityPolicy: { directives: { upgradeInsecureRequests: null } } }));

@@ -1,13 +1,20 @@
 import mongoose from 'mongoose';
 import { runtime } from '../config/runtime.js';
+import { User } from '../models/userModel.js';
 import { DEMO_ACCOUNTS } from '../seed/demoData.js';
 
-/** GET /api/v1/meta: tells the client whether it is talking to the demo database (and its accounts). */
-export function getMeta(_req, res) {
+const DEMO_ADMIN_EMAIL = DEMO_ACCOUNTS.find((account) => account.role === 'admin').email;
+
+/**
+ * GET /api/v1/meta: the demo accounts for the login page whenever the demo data is loaded, either in
+ * the built-in demo database or after `npm run seed` on a real one (e.g. a live demo site).
+ */
+export async function getMeta(_req, res) {
+  const hasDemoData = runtime.demoMode || Boolean(await User.exists({ email: DEMO_ADMIN_EMAIL }));
   res.json({
     success: true,
     demoMode: runtime.demoMode,
-    demoAccounts: runtime.demoMode ? DEMO_ACCOUNTS : [],
+    demoAccounts: hasDemoData ? DEMO_ACCOUNTS : [],
   });
 }
 

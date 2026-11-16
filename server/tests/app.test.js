@@ -29,7 +29,7 @@ describe('App', () => {
     assert.equal(res.body.message, 'Malformed JSON in request body');
   });
 
-  it('reports demo mode and its accounts only when the demo database is used', async () => {
+  it('lists demo accounts only in demo mode or once demo data is loaded', async () => {
     let res = await api().get('/api/v1/meta').expect(200);
     assert.equal(res.body.demoMode, false);
     assert.deepEqual(res.body.demoAccounts, []);
@@ -48,6 +48,11 @@ describe('App', () => {
     const summary = await seedDemoData();
     assert.ok(summary.inventory > 50, `expected plenty of records, got ${summary.inventory}`);
     assert.equal(await seedDemoData(), null, 'seeding twice must not duplicate data');
+
+    // A real database with the demo data loaded (e.g. a live demo site) also shows the demo accounts.
+    const meta = await api().get('/api/v1/meta').expect(200);
+    assert.equal(meta.body.demoMode, false);
+    assert.equal(meta.body.demoAccounts.length, DEMO_ACCOUNTS.length);
 
     // Every demo account can log in with its role.
     for (const account of DEMO_ACCOUNTS) {

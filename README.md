@@ -148,9 +148,26 @@ All endpoints are under `/api/v1` and return JSON `{ success, message?, ... }`. 
 | Admin | `GET /admin/overview`, `GET /admin/users?role=`, `DELETE /admin/users/:id` | admin |
 | Other | `GET /organisations`, `GET /meta`, `GET /meta/health` | logged in / public |
 
-## Deployment (single service)
+## Deployment
 
-The server serves the built client, so one web service is enough (for example on Render):
+### Vercel
+
+[`vercel.json`](vercel.json) builds the client into `client/dist` and runs the API as a serverless function
+([`api/index.mjs`](api/index.mjs)). The built-in demo database can't run on Vercel, so in the Vercel project
+open **Settings → Environment Variables** and add, for Production and Preview:
+
+- `MONGO_URL`: a MongoDB connection string, e.g. from a free [MongoDB Atlas](https://www.mongodb.com/atlas)
+  cluster. In Atlas, allow network access from anywhere (`0.0.0.0/0`), because Vercel has no fixed IPs.
+- `JWT_SECRET`: a long random string, e.g. the output of
+  `node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"`.
+
+Then redeploy. Until both are set, the API answers with a message naming what is missing.
+To give the live site demo accounts, put the same `MONGO_URL` in a local `.env` and run `npm run seed`:
+the login page then lists the demo accounts (anyone visiting the site can use them).
+
+### Single Node server (e.g. Render)
+
+The server also serves the built client, so one web service is enough:
 
 - **Build command:** `npm ci --include=dev && npm run build`
 - **Start command:** `npm start`

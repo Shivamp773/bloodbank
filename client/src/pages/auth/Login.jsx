@@ -73,9 +73,10 @@ export default function Login() {
         </p>
       </form>
 
-      {meta?.demoMode && (
+      {meta?.demoAccounts?.length > 0 && (
         <DemoAccounts
           accounts={meta.demoAccounts}
+          resetsOnRestart={meta.demoMode}
           onPick={({ email, password, role }) => setForm({ email, password, role })}
         />
       )}

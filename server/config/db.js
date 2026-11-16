@@ -19,6 +19,7 @@ export async function connectDB() {
     }
     let MongoMemoryServer;
     try {
+      // Dev-only package; vercel.json excludes it from the serverless bundle, where MONGO_URL is required.
       ({ MongoMemoryServer } = await import('mongodb-memory-server'));
     } catch {
       throw new Error(

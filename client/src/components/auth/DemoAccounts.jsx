@@ -1,7 +1,7 @@
 import { ROLE_LABELS } from '../../constants.js';
 
-/** Shown on the login page only when the server runs on the built-in demo database. */
-export default function DemoAccounts({ accounts, onPick }) {
+/** Shown on the login page whenever the demo data is loaded (built-in demo database or `npm run seed`). */
+export default function DemoAccounts({ accounts, resetsOnRestart, onPick }) {
   if (!accounts?.length) return null;
   return (
     <div className="card demo-accounts mt-4">
@@ -30,7 +30,11 @@ export default function DemoAccounts({ accounts, onPick }) {
         ))}
       </ul>
       <div className="card-body pt-2">
-        <p className="small-muted mb-0">Demo data resets whenever the server restarts.</p>
+        <p className="small-muted mb-0">
+          {resetsOnRestart
+            ? 'Demo data resets whenever the server restarts.'
+            : 'These accounts share demo data, so other visitors may change it.'}
+        </p>
       </div>
     </div>
   );

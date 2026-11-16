@@ -20,6 +20,8 @@ export const config = Object.freeze({
   nodeEnv,
   isProduction: nodeEnv === 'production',
   isTest: nodeEnv === 'test',
+  // Behind a hosting proxy (Vercel, Render, ...), client IPs come from X-Forwarded-For.
+  behindProxy: nodeEnv === 'production' || Boolean(process.env.VERCEL),
   port: Number.parseInt(process.env.PORT, 10) || 8080,
   mongoUrl: process.env.MONGO_URL?.trim() || '',
   // Without JWT_SECRET a random secret is generated per run, so sessions end when the server restarts.

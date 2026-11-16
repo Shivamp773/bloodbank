@@ -10,6 +10,9 @@ node_modules/
 client/dist/
 coverage/
 
+# Vercel CLI local project link and build output
+.vercel/
+
 # Logs and OS files
 *.log
 .DS_Store
